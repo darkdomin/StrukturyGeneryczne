@@ -6,9 +6,30 @@ namespace _1_TypyGeneryczne
     {
         static void Main(string[] args)
         {
-            var kolejka = new KolejkaKolowa(pojemnosc: 3);
+            var kolejka = new KolejkaKolowa<double>(pojemnosc: 3);
 
-            while(true)
+            WprowadzanieDanych(kolejka);
+
+            PrzetwazanieDanych(kolejka);
+
+            Console.ReadKey();
+        }
+
+        private static void PrzetwazanieDanych(KolejkaKolowa<double> kolejka)
+        {
+            var suma = 0.0;
+            Console.WriteLine("W naszej kolejce jest:");
+
+            while (!kolejka.CzyJestPusty)
+            {
+                suma += kolejka.Odczyt();
+            }
+            Console.WriteLine(suma);
+        }
+
+        private static void WprowadzanieDanych(KolejkaKolowa<double> kolejka)
+        {
+            while (true)
             {
                 var wartosc = 0.0;
                 var wartoscWejsciowa = Console.ReadLine();
@@ -20,13 +41,7 @@ namespace _1_TypyGeneryczne
                 }
                 else break;
             }
-            Console.WriteLine("W naszej kolejce jest:");
-
-            while(!kolejka.CzyJestPusty)
-            {
-                Console.WriteLine("\t\t"+kolejka.Odczyt());
-            }
-            Console.ReadKey();
         }
     }
+
 }
