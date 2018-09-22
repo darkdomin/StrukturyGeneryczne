@@ -69,5 +69,59 @@ namespace _2_KolekcjeGeneryczneTests
 
             Assert.AreEqual(7, listaLiczb[6]);
         }
+
+        [TestMethod]
+        public void UzyciePeek()
+        {
+            var kolejka = new Queue<int>();
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
+
+            Assert.AreEqual(1, kolejka.Peek());
+        }
+
+        [TestMethod]
+        public void UzycieContains()
+        {
+            var kolejka = new Queue<int>();
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
+
+            Assert.IsTrue( kolejka.Contains(3));//czy zawiera
+        }
+
+        [TestMethod]
+        public void UzycieToArray()
+        {
+            var kolejka = new Queue<int>();
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
+
+            var tablica = kolejka.ToArray();
+           
+            Assert.IsTrue(kolejka.Count==tablica.Length);
+            kolejka.Dequeue();
+            Assert.AreEqual(1,tablica[0]);
+        }
+
+        [TestMethod]
+        public void UzycieClear()
+        {
+            var kolejka = new Queue<int>();
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
+
+            kolejka.Clear();
+
+            Assert.AreEqual(0,kolejka.Count);
+        }
     }
 }
