@@ -14,7 +14,40 @@ namespace _2_KolekcjeGeneryczne
             Kolejka();
             Stos();
             HaszSet();
+
+            LinkedList();
+
+            LinkedList<int> lista = new LinkedList<int>();
+            lista.AddFirst(5);
+            lista.AddFirst(6);
+            lista.AddFirst(7);
+
+            var pierwszy = lista.First;//odniesienie do elementu pierwszego
+            var ostatni = lista.Last;
+            lista.AddAfter(pierwszy,10);
+            lista.AddBefore(pierwszy,20);
+
+            var wezel = lista.First;
+            while(wezel!=null)
+            {
+                Console.WriteLine(wezel.Value);
+                wezel = wezel.Next;
+            }
             Console.ReadKey();
+        }
+
+        private static void LinkedList()
+        {
+            LinkedList<int> lista = new LinkedList<int>();
+            lista.AddFirst(5);
+            lista.AddFirst(6);
+
+            lista.AddLast(1);
+
+            foreach (var p in lista)
+            {
+                Console.WriteLine(p);
+            }
         }
 
         private static void HaszSet()
