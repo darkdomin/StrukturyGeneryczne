@@ -10,13 +10,111 @@ namespace _2_KolekcjeGeneryczne
     {
         static void Main(string[] args)
         {
-            Lista();
-            Kolejka();
-            Stos();
-            HaszSet();
+            //Lista();
+            //Kolejka();
+            //Stos();
+            //HaszSet();
+            //LinkedList();
+            //LinkedList2();
+            //Dictionary();
+            //SortedDictionary();
+            //SortedList();
 
-            LinkedList();
+           // SortedSet();
+            Console.ReadKey();
 
+        }
+
+        private static void SortedSet()
+        {
+            var set = new SortedSet<int>(); //cos w stylu hashset
+            set.Add(8);
+            set.Add(6);
+            set.Add(5);
+            set.Add(3);
+            set.Add(2);
+            set.Add(1);
+
+            var set2 = new SortedSet<string>(); //cos w stylu hashset
+            set2.Add("dominik");
+            set2.Add("monika");
+            set2.Add("pawel");
+            set2.Add("marek");
+            set2.Add("magda");
+            set2.Add("tomek");
+
+            foreach (var item in set2)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private static void SortedList()
+        {
+            var listaPosortowana = new SortedList<int, string>();
+
+            listaPosortowana.Add(3, "trzy");
+            listaPosortowana.Add(1, "jeden");
+            listaPosortowana.Add(4, "cztery");
+            listaPosortowana.Add(2, "dwa");
+
+            foreach (var item in listaPosortowana)
+            {
+                Console.WriteLine(item.Value);
+            }
+        }
+
+        private static void SortedDictionary()
+        {
+            var pracownicy = new SortedList<string, List<Pracownik>>();
+            pracownicy.Add("Sprzedaż", new List<Pracownik> { new Pracownik { Imie = "Jan", Nazwisko = "Kowal" },
+                                                             new Pracownik { Imie = "Tomek", Nazwisko = "Nowak" },
+                                                             new Pracownik { Imie = "Marcin", Nazwisko = "Bień" }});
+
+            pracownicy.Add("Informatyka", new List<Pracownik> { new Pracownik { Imie = "Marcin", Nazwisko = "Kowal" },
+                                                             new Pracownik { Imie = "Tomek", Nazwisko = "Wróbel" } });
+
+            pracownicy.Add("Księgowość", new List<Pracownik> { new Pracownik { Imie = "Jan", Nazwisko = "Kowal" },
+                                                             new Pracownik { Imie = "Tomek", Nazwisko = "Nowak" },
+                                                             new Pracownik { Imie = "Jurek", Nazwisko = "Pytel" },
+                                                             new Pracownik { Imie = "Robert", Nazwisko = "Stach" } });
+
+
+            foreach (var item in pracownicy)
+            {
+                Console.WriteLine("ilosc pracowników w dziale {0} wynosi: {1} ", item.Key, item.Value.Count);
+            }
+        }
+
+        private static void Dictionary()
+        {
+            // Dictionary<string, Pracownik> pracownicy = new Dictionary<string, Pracownik>();
+            var pracownicy = new Dictionary<string, List<Pracownik>>();
+            pracownicy.Add("ksiegowosc", new List<Pracownik>() { new Pracownik { Nazwisko = "Nowak" } ,
+                                                               new Pracownik { Nazwisko ="Kowal" },
+                                                               new Pracownik { Nazwisko ="Kaczor" }});
+
+            pracownicy["ksiegowosc"].Add(new Pracownik { Nazwisko = "Nowak" });
+
+            pracownicy.Add("informatyka", new List<Pracownik>() { new Pracownik { Nazwisko = "zabielski" } ,
+                                                               new Pracownik { Nazwisko ="Bogacki" },
+                                                               });
+            //foreach (var item in pracownicy)
+            //{
+            //    foreach (var p in item.Value)
+            //    {
+            //        Console.WriteLine(item.Key+" "+ p.Nazwisko);
+            //    }
+
+            //}
+            foreach (var p in pracownicy["informatyka"])
+            {
+                Console.WriteLine(p.Nazwisko);
+            }
+        }
+
+        private static void LinkedList2()
+        {
             LinkedList<int> lista = new LinkedList<int>();
             lista.AddFirst(5);
             lista.AddFirst(6);
@@ -24,16 +122,15 @@ namespace _2_KolekcjeGeneryczne
 
             var pierwszy = lista.First;//odniesienie do elementu pierwszego
             var ostatni = lista.Last;
-            lista.AddAfter(pierwszy,10);
-            lista.AddBefore(pierwszy,20);
+            lista.AddAfter(pierwszy, 10);
+            lista.AddBefore(pierwszy, 20);
 
             var wezel = lista.First;
-            while(wezel!=null)
+            while (wezel != null)
             {
                 Console.WriteLine(wezel.Value);
                 wezel = wezel.Next;
             }
-            Console.ReadKey();
         }
 
         private static void LinkedList()
