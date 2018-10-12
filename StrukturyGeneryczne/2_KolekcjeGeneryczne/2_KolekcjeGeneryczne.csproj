@@ -42,12 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DzialyKolekcja.cs" />
     <Compile Include="Pracownik.cs" />
+    <Compile Include="PracownikComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\1_TypyGeneryczne\1_TypyGeneryczne.csproj">
+      <Project>{027FDB0B-05E9-4F25-9E3F-21F21F71EFC2}</Project>
+      <Name>1_TypyGeneryczne</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

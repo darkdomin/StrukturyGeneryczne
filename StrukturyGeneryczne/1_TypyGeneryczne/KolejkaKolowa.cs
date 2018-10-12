@@ -1,56 +1,28 @@
 ﻿namespace _1_TypyGeneryczne
 {
-    public class KolejkaKolowa<T>
+    public class KolejkaKolowa<T> : DuzaKolejka<T>
     {
-        private T[] bufor;
-        private int poczatekBufora;
-        private int koniecBufora;
-
-        public KolejkaKolowa() : this(pojemnosc: 5)
+        private int Pojemnosc;
+       public KolejkaKolowa(int pojemnosc=5)
         {
-
+            this.Pojemnosc = pojemnosc;
         }
 
-        public KolejkaKolowa(int pojemnosc)
+        public override void Zapisz(T wartosc)
         {
-            bufor = new T[pojemnosc + 1];
-            poczatekBufora = 0;
-            koniecBufora = 0;
+            base.Zapisz(wartosc);
+            if(kolejka2.Count>Pojemnosc)
+            {
+                kolejka2.Dequeue();
+            }
         }
-
-        public void Zapisz(T wartosc)
-        {
-            bufor[koniecBufora] = wartosc;
-            //koniec bufora zwieksza sie o 1 ale nie moze byc wiekszy niz jego pojemnosc. Dlatego resta z dzielenia i wielkosc bufora
-            koniecBufora = (koniecBufora + 1) % bufor.Length;
-            if (koniecBufora == poczatekBufora) poczatekBufora = (poczatekBufora + 1) % bufor.Length;
-        }
-        public T Odczyt()
-        {
-            var wynik = bufor[poczatekBufora];
-            poczatekBufora = (poczatekBufora + 1) % bufor.Length;
-            return wynik;
-        }
-        public int Pojemnosc
+        public override bool JestPelny
         {
             get
             {
-                return bufor.Length;
+                return kolejka2.Count == Pojemnosc;
             }
-        }
-        public bool CzyJestPusty
-        {
-            get
-            {
-                return koniecBufora == poczatekBufora;
-            }
-        }
-        public bool JestPelny
-        {
-            get
-            {
-                return (koniecBufora + 1) % bufor.Length == poczatekBufora;
-            }
+            
         }
 
     }

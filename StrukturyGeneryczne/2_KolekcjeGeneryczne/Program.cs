@@ -17,12 +17,33 @@ namespace _2_KolekcjeGeneryczne
             //LinkedList();
             //LinkedList2();
             //Dictionary();
-            //SortedDictionary();
+            // SortedDictionary();
             //SortedList();
+            // SortedSet();
+            var pracownicy = new DzialyKolekcja();
+           
 
-           // SortedSet();
+            pracownicy.Add("Ksiegowosc",new Pracownik { Nazwisko = "Nowak" })
+            .Add("Ksiegowosc",new Pracownik { Nazwisko = "Kowal" })
+            .Add("Ksiegowosc",new Pracownik { Nazwisko = "Kaczor" })
+            .Add("Ksiegowosc",new Pracownik { Nazwisko = "Bogacki" });
+
+            pracownicy.Add("Sprzedaz",new Pracownik { Nazwisko = "Nowak" })
+           .Add("Sprzedaz", new Pracownik { Nazwisko = "Głowacki" })
+           .Add("Sprzedaz",new Pracownik { Nazwisko = "Czapla" })
+           .Add("Sprzedaz",new Pracownik { Nazwisko = "Kurowski" })
+           .Add("Sprzedaz",new Pracownik { Nazwisko = "Kurowski" });
+
+            foreach (var dzial in pracownicy)
+            {
+                Console.WriteLine(dzial.Key);
+                foreach (var pracownik in dzial.Value)
+                {
+                    Console.WriteLine("\t"+pracownik.Nazwisko);
+                }
+            }
+
             Console.ReadKey();
-
         }
 
         private static void SortedSet()
@@ -43,9 +64,9 @@ namespace _2_KolekcjeGeneryczne
             set2.Add("magda");
             set2.Add("tomek");
 
-            foreach (var item in set2)
+            foreach (var dzial in set2)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(dzial);
             }
         }
 
@@ -58,9 +79,9 @@ namespace _2_KolekcjeGeneryczne
             listaPosortowana.Add(4, "cztery");
             listaPosortowana.Add(2, "dwa");
 
-            foreach (var item in listaPosortowana)
+            foreach (var dzial in listaPosortowana)
             {
-                Console.WriteLine(item.Value);
+                Console.WriteLine(dzial.Value);
             }
         }
 
@@ -80,9 +101,9 @@ namespace _2_KolekcjeGeneryczne
                                                              new Pracownik { Imie = "Robert", Nazwisko = "Stach" } });
 
 
-            foreach (var item in pracownicy)
+            foreach (var dzial in pracownicy)
             {
-                Console.WriteLine("ilosc pracowników w dziale {0} wynosi: {1} ", item.Key, item.Value.Count);
+                Console.WriteLine("ilosc pracowników w dziale {0} wynosi: {1} ", dzial.Key, dzial.Value.Count);
             }
         }
 
@@ -99,11 +120,11 @@ namespace _2_KolekcjeGeneryczne
             pracownicy.Add("informatyka", new List<Pracownik>() { new Pracownik { Nazwisko = "zabielski" } ,
                                                                new Pracownik { Nazwisko ="Bogacki" },
                                                                });
-            //foreach (var item in pracownicy)
+            //foreach (var dzial in pracownicy)
             //{
-            //    foreach (var p in item.Value)
+            //    foreach (var p in dzial.Value)
             //    {
-            //        Console.WriteLine(item.Key+" "+ p.Nazwisko);
+            //        Console.WriteLine(dzial.Key+" "+ p.Nazwisko);
             //    }
 
             //}
